@@ -5,11 +5,9 @@
     "description": "CSE 341 API",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cs341-personalassignment.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/api-docs": {
       "get": {
@@ -34,9 +32,7 @@
     "/tickets/": {
       "get": {
         "description": "Getting all tickets from our database",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -123,9 +119,7 @@
     "/employees/": {
       "get": {
         "description": "Getting all employees from our database",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
