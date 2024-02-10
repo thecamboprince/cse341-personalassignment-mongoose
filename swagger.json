@@ -7,10 +7,29 @@
   },
   "host": "cs341-personalassignment.onrender.com",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "Home",
+      "description": "API Home Page"
+    },
+    {
+      "name": "Tickets",
+      "description": "Issued Ticketing System"
+    },
+    {
+      "name": "Employees",
+      "description": "Operations about employees"
+    },
+    {
+      "name": "Not Yet Implemented",
+      "description": "These API endpoints are designed and will be created in the near future"
+    }
+  ],
   "schemes": ["https"],
   "paths": {
     "/api-docs": {
       "get": {
+        "tags": ["Home"],
         "description": "",
         "responses": {
           "default": {
@@ -21,6 +40,7 @@
     },
     "/": {
       "get": {
+        "tags": ["Home"],
         "description": "Home route",
         "responses": {
           "200": {
@@ -31,6 +51,7 @@
     },
     "/tickets/": {
       "get": {
+        "tags": ["Tickets"],
         "description": "Getting all tickets from our database",
         "produces": ["application/json"],
         "responses": {
@@ -43,6 +64,7 @@
         }
       },
       "post": {
+        "tags": ["Tickets"],
         "description": "Creating a single task to our database",
         "parameters": [
           {
@@ -94,6 +116,7 @@
     },
     "/tickets/{id}": {
       "get": {
+        "tags": ["Tickets"],
         "description": "Getting a single ticket from our database using id",
         "parameters": [
           {
@@ -118,6 +141,7 @@
     },
     "/employees/": {
       "get": {
+        "tags": ["Employees"],
         "description": "Getting all employees from our database",
         "produces": ["application/json"],
         "responses": {
@@ -130,6 +154,7 @@
         }
       },
       "post": {
+        "tags": ["Employees"],
         "description": "",
         "responses": {
           "default": {
@@ -140,6 +165,7 @@
     },
     "/employees/{id}": {
       "get": {
+        "tags": ["Employees"],
         "description": "Getting a single ticket from our database using id",
         "parameters": [
           {
