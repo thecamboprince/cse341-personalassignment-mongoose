@@ -106,7 +106,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "successfully created a ticket"
           },
           "500": {
             "description": "Internal Server Error"
