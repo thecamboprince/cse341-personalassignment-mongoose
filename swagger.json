@@ -65,7 +65,7 @@
       },
       "post": {
         "tags": ["Tickets"],
-        "description": "Creating a single task to our database",
+        "description": "Creating a single ticket to our database",
         "parameters": [
           {
             "name": "body",
@@ -155,10 +155,33 @@
       },
       "post": {
         "tags": ["Employees"],
-        "description": "",
+        "description": "Creating a single employee to our database",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

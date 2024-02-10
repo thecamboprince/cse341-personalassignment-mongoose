@@ -13,7 +13,7 @@ const getAllTickets = async (req, res, next) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "An error occurred while getting tasks.",
+        message: err.message || "An error occurred while getting tickets.",
       });
     });
 };
@@ -39,7 +39,7 @@ const getSingleTicket = async (req, res, next) => {
 
 // POST Request Controllers (Create)
 const createTicket = async (req, res) => {
-  // #swagger.description = 'Creating a single task to our database'
+  // #swagger.description = 'Creating a single ticket to our database'
 
   const ticket = new Tickets({
     title: req.body.title,
@@ -61,7 +61,7 @@ const createTicket = async (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Error occurred while creating a task.",
+        message: err.message || "Error occurred while creating a ticket.",
       });
     });
 };

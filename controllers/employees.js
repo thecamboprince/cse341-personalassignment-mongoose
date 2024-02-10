@@ -18,7 +18,6 @@ const getAllEmployees = async (req, res, next) => {
 
 const getSingleEmployee = async (req, res, next) => {
   // #swagger.description = 'Getting a single ticket from our database using id'
-
   const userId = req.params.id;
   Employees.findOne({ _id: userId })
     .then((data) => {
@@ -39,8 +38,7 @@ const getSingleEmployee = async (req, res, next) => {
 
 // POST Request Controllers (Create)
 const createEmployee = async (req, res) => {
-  // #swagger.description = 'Creating a single task to our database'
-
+  // #swagger.description = 'Creating a single employee to our database'
   const employee = new Employees({
     username: req.body.username,
     email: req.body.email,
@@ -55,7 +53,7 @@ const createEmployee = async (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Error occurred while creating a task.",
+        message: err.message || "Error occurred while creating a employee.",
       });
     });
 };
