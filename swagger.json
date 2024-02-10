@@ -178,10 +178,13 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
-          },
-          "500": {
-            "description": "Internal Server Error"
+            "description": "successfully created an employee",
+            "schema": {
+              "type": "object"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
           }
         }
       }
