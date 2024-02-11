@@ -9,6 +9,8 @@ const port = process.env.PORT || 8080;
 app.use(bodyParser.json()).use(cors()).use("/", require("./routes"));
 
 db.mongoose
+  // Establishing a connection to the MongoDB database using the Mongoose library,
+  // and passing the MongoDB connection URI retrieved from environment variables
   .connect(process.env.MONGODB_URI, {
     // Accessing MongoDB URI from environment variable
     useNewUrlParser: true,
