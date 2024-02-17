@@ -385,7 +385,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK - The Employee was successful deleted."
+            "description": "OK - The Employee was successfully deleted."
           },
           "400": {
             "description": "Bad Request - The request was malformed or missing required parameters."
