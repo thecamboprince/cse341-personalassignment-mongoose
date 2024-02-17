@@ -89,3 +89,21 @@ npm install swagger-ui-express
 ### Run the command to create a swagger.json file, presumably defined in your project's scripts
 
 npm run swagger
+
+##
+
+### Isntall bcryptjs
+
+npm install bcryptjs
+
+##
+
+### Isntall bcrypt
+
+npm install bcrypt
+
+##
+
+### Isntall express-validator
+
+npm install express-validator
