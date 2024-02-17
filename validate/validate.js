@@ -127,7 +127,7 @@ const employeeDataValidation = () => {
     // Validation for the 'password' field
     body("password")
       .trim()
-      .isLength({ min: 8 }) // Check if the length of the field is at least 8 characters
+      .isLength({ min: 6 }) // Check if the length of the field is at least 6 characters
       .withMessage("Password must be at least 6 characters long."), // Custom error message if validation fails
   ];
 };
