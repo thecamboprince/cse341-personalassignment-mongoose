@@ -39,31 +39,151 @@ const getSingleTicket = async (req, res, next) => {
 
 // POST Request Controllers (Create)
 const createTicket = async (req, res) => {
-  // #swagger.description = 'Creating a single ticket to our database'
+  try {
+    // #swagger.description = 'Creating a single ticket to our database'
 
-  const ticket = new Tickets({
-    title: req.body.title,
-    description: req.body.description,
-    assignee: req.body.assignee,
-    reporter: req.body.reporter,
-    priority: req.body.priority,
-    status: req.body.status,
-    createdDate: req.body.createdDate,
-    lastUpdatedDate: req.body.lastUpdatedDate,
-    comments: req.body.comments,
-  });
+    const {
+      title,
+      description,
+      assignee,
+      reporter,
+      priority,
+      status,
+      createdDate,
+      lastUpdatedDate,
+      comments,
+    } = req.body;
+    const requiredFields = {
+      title,
+      description,
+      assignee,
+      reporter,
+      priority,
+      status,
+      createdDate,
+      lastUpdatedDate,
+      comments,
+    };
 
-  await ticket
-    .save()
-    .then((data) => {
-      console.log(data);
-      res.status(201).send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Error occurred while creating a ticket.",
-      });
+    for (const field in requiredFields) {
+      if (!requiredFields[field]) {
+        return res.status(400).send({ message: `Please provide ${field}.` });
+      }
+    }
+
+    const ticket = new Tickets({
+      title,
+      description,
+      assignee,
+      reporter,
+      priority,
+      status,
+      createdDate,
+      lastUpdatedDate,
+      comments,
     });
+
+    const data = await ticket.save();
+    console.log(data);
+    return res.status(201).send(data);
+  } catch (err) {
+    return res.status(500).send({
+      message: err.message || "Error occurred while creating a ticket.",
+    });
+  }
 };
 
-module.exports = { getAllTickets, getSingleTicket, createTicket };
+const updateTicket = async (req, res) => {
+  try {
+    // #swagger.description = 'Updating a single ticket to our database'
+
+    if (!ObjectId.isValid(req.params.id)) {
+      return res
+        .status(400)
+        .json("Must use a valid ticket id to update a ticket");
+    }
+
+    const userId = req.params.id;
+    const ticket = {
+      title: req.body.title,
+      description: req.body.description,
+      assignee: req.body.assignee,
+      reporter: req.body.reporter,
+      priority: req.body.priority,
+      status: req.body.status,
+      createdDate: req.body.createdDate,
+      lastUpdatedDate: req.body.lastUpdatedDate,
+      comments: req.body.comments,
+    };
+
+    // Check for missing fields in the updated ticket data
+    const requiredFields = [
+      "title",
+      "description",
+      "assignee",
+      "reporter",
+      "priority",
+      "status",
+      "createdDate",
+      "lastUpdatedDate",
+      "comments",
+    ];
+    const missingFields = requiredFields.filter((field) => !ticket[field]);
+
+    if (missingFields.length > 0) {
+      const errorMessage = `Missing data: ${missingFields.join(", ")}`;
+      return res.status(400).send({ error: "Bad Request - " + errorMessage });
+    }
+
+    const response = await Tickets.findByIdAndUpdate(userId, ticket, {
+      new: true,
+    });
+
+    if (!response) {
+      return res
+        .status(404)
+        .send({ message: "No ticket found with id " + userId });
+    }
+
+    return res.status(204).json(response);
+  } catch (err) {
+    return res
+      .status(500)
+      .send({ message: "Error updating ticket: " + err.message });
+  }
+};
+
+const deleteTicket = async (req, res) => {
+  try {
+    // #swagger.description = 'Deleting a single ticket to our database'
+    if (!ObjectId.isValid(req.params.id)) {
+      return res
+        .status(400)
+        .json("Must use a valid ticket id to delete a ticket");
+    }
+
+    const userId = req.params.id;
+
+    const data = await Tickets.deleteOne({ _id: userId });
+
+    if (data.deletedCount > 0) {
+      return res.status(200).send();
+    } else {
+      return res
+        .status(500)
+        .json("Some error occurred while deleting the ticket.");
+    }
+  } catch (error) {
+    return res
+      .status(500)
+      .json("An error occurred while processing your request.");
+  }
+};
+
+module.exports = {
+  getAllTickets,
+  getSingleTicket,
+  createTicket,
+  updateTicket,
+  deleteTicket,
+};

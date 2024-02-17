@@ -22,12 +22,8 @@ module.exports = (mongoose) => {
       status: {
         type: String,
       },
-      createdDate: {
-        type: String,
-      },
-      lastUpdatedDate: {
-        type: String,
-      },
+      createdDate: { type: Date }, // Updated to Date type
+      lastUpdatedDate: { type: Date }, // Updated to Date type
       comments: {
         type: String,
       },
