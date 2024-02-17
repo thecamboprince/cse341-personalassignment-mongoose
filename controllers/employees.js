@@ -94,7 +94,7 @@ const updateEmployee = async (req, res) => {
 
     if (missingFields.length > 0) {
       const errorMessage = `Missing data: ${missingFields.join(", ")}`;
-      return res.status(400).json({ error: "Bad Request - " + errorMessage });
+      return res.status(404).json({ error: "Bad Request - " + errorMessage });
     }
 
     // Validate password complexity
@@ -107,7 +107,7 @@ const updateEmployee = async (req, res) => {
         const errorMessage = `Password does not meet complexity requirements. Missing requirements: ${missingRequirements.join(
           ", "
         )}`;
-        return res.status(400).json({ error: errorMessage });
+        return res.status(404).json({ error: errorMessage });
       }
     }
 
