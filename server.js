@@ -11,14 +11,12 @@ app.use(bodyParser.json()).use(cors()).use("/", require("./routes"));
 db.mongoose
   // Establishing a connection to the MongoDB database using the Mongoose library,
   // and passing the MongoDB connection URI retrieved from environment variables
-  .connect(process.env.MONGODB_URI, {
-    // Accessing MongoDB URI from environment variable
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     app.listen(port, () => {
-      console.log(`DB Connected and server running on ${port}.`);
+      console.log(
+        `\nConnected to MongoDB and server running on port ${port}.\n`
+      );
     });
   })
   .catch((err) => {
