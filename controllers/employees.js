@@ -50,7 +50,7 @@ const createEmployee = async (req, res) => {
       const missingRequirements = passwordValidation.error.details.map(
         (detail) => detail.message
       );
-      return res.status(400).json({
+      return res.status(404).json({
         error: `Password does not meet complexity requirements. Missing requirements: ${missingRequirements.join(
           ", "
         )}`,
@@ -76,7 +76,6 @@ const createEmployee = async (req, res) => {
   }
 };
 
-// Update Employee
 // Update Employee
 const updateEmployee = async (req, res) => {
   try {
