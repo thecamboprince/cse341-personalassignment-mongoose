@@ -107,3 +107,9 @@ npm install bcrypt
 ### Isntall express-validator
 
 npm install express-validator
+
+##
+
+### Isntall joi-password-commplexity
+
+npm install joi-password-complexity
