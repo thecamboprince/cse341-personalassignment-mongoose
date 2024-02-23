@@ -19,10 +19,6 @@
     {
       "name": "Employees",
       "description": "Operations about employees"
-    },
-    {
-      "name": "Not Yet Implemented",
-      "description": "These API endpoints are designed and will be created in the near future"
     }
   ],
   "schemes": ["https"],
