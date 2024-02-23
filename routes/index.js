@@ -13,20 +13,54 @@ router.get("/", (req, res) => {
     // res.send(
     //   `Logged in as ${req.oidc.user.name}.<br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the API docs page!`
     // );
-    res.send(`
+    // Create an HTML string dynamically
+    const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://cse341-personalassignment-mongoose.onrender.com/api-docs">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>Logged In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <p>This page has moved. If you are not redirected, <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">click here</a>.</p>
+    <div class="container">
+        <div class="message">
+            You are logged in as <span id="username"></span>.
+        </div>
+    </div>
+    <script>
+        // JavaScript to display the username dynamically
+        const username = "${req.oidc.user.name}";
+        document.getElementById("username").innerText = username;
+    </script>
 </body>
 </html>
-`);
+`;
+
+    // Send the HTML content as a response
+    res.send(htmlContent);
   } else {
     res.send(
       'Logged Out.<br><br> Please click <a href="https://cse341-personalassignment-mongoose.onrender.com/login">here</a> to login.'
