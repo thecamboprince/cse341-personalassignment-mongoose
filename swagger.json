@@ -114,6 +114,9 @@
           "400": {
             "description": "Bad Request - The request was malformed or missing required parameters."
           },
+          "401": {
+            "Unauthorized": "Please login to make changes!"
+          },
           "404": {
             "description": "Bad Request - Data validation check error."
           },
@@ -204,6 +207,9 @@
           "400": {
             "description": "Bad Request - The request was malformed or missing required parameters."
           },
+          "401": {
+            "Unauthorized": "Please login to make changes!"
+          },
           "404": {
             "description": "Bad Request - Data validation check error."
           },
@@ -289,6 +295,9 @@
           "400": {
             "description": "Bad Request - The request was malformed or missing required parameters."
           },
+          "401": {
+            "Unauthorized": "Please login to make changes!"
+          },
           "404": {
             "description": "Bad Request - Data validation check error."
           },
@@ -363,6 +372,9 @@
           },
           "400": {
             "description": "Bad Request - The request was malformed or missing required parameters."
+          },
+          "401": {
+            "Unauthorized": "Please login to make changes!"
           },
           "404": {
             "description": "Bad Request - Data validation check error."
