@@ -11,11 +11,11 @@ router.use("/employees", require("./employees"));
 router.get("/", (req, res) => {
   if (req.oidc.isAuthenticated()) {
     res.send(
-      `Logged in as ${req.oidc.user.name}.<br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the API docs page!`
+      `Logged in as ${req.oidc.user.name}.<br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the API docs page!`
     );
   } else {
     res.send(
-      'Logged Out.<br> Please click<a href="https://cse341-personalassignment-mongoose.onrender.com/login">here</a> to login.'
+      'Logged Out.<br><br> Please click <a href="https://cse341-personalassignment-mongoose.onrender.com/login">here</a> to login.'
     );
   }
 });
