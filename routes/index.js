@@ -48,7 +48,8 @@ router.get("/", (req, res) => {
         <body>
             <div class="container">
                 <div class="message">
-                    You are logged in as <span id="username"></span>.<br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the API docs page!
+                    You are logged in as *<span id="username"></span>*.<br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the api-docs page!
+                    <br><br>Or<br><br>You can click <a href="https://cse341-personalassignment-mongoose.onrender.com/logout">here</a> to logout!
                 </div>
             </div>
             <script>
@@ -101,6 +102,7 @@ router.get("/", (req, res) => {
             <div class="container">
                 <div class="message">
                     Logged Out.<br><br> Please click <a href="https://cse341-personalassignment-mongoose.onrender.com/login">here</a> to login.
+                    <br><br>Or<br><br>You can click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go the api-docs page!
                 </div>
             </div>
         </body>
