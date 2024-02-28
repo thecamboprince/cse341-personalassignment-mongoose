@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./models");
 const { auth, requiresAuth } = require("express-openid-connect");
+const { graphqlHTTP } = require("express-graphql");
+const schema = require("./graphql");
 
 const port = process.env.PORT || 8080;
 
@@ -41,6 +43,17 @@ app.get("/", (req, res) => {
 app.get("/profile", requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
+
+//GraphQL
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema,
+    pretty: true,
+    graphiql: true,
+  })
+);
+//End GraphQL
 
 // Error handling
 process.on("uncaughtException", (err, origin) => {
