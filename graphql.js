@@ -7,7 +7,11 @@ const {
   GraphQLID,
   GraphQLScalarType,
 } = require("graphql");
+
+// Importing the 'tickets' model from the './models' directory
 const { tickets } = require("./models");
+
+// Importing the 'employees' model from the './models' directory
 const { employees } = require("./models");
 
 // Define the EmployeeType
@@ -38,19 +42,22 @@ const TicketType = new GraphQLObjectType({
   }),
 });
 
+// Define the root query object for GraphQL queries, which includes fields for querying employees and tickets
 const RootQuery = new GraphQLObjectType({
   name: "Query",
   fields: {
+    // Field to query all employees, returning a list of EmployeeType
     employees: {
       type: GraphQLList(EmployeeType),
       resolve: async () => {
         try {
-          return await employees.find();
+          return await employees.find(); // Use find() to get all employees from the database
         } catch (err) {
           throw new Error(err.message);
         }
       },
     },
+    // Field to query an employee by their ID, returning a single EmployeeType
     employeeById: {
       type: EmployeeType,
       args: {
@@ -66,6 +73,7 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+    // Field to query all tickets, returning a list of TicketType
     tickets: {
       type: GraphQLList(TicketType),
       resolve: async () => {
@@ -76,6 +84,7 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+    // Field to query a ticket by its ID, returning a single TicketType
     ticketById: {
       type: TicketType,
       args: {
