@@ -77,7 +77,7 @@ const RootQuery = new GraphQLObjectType({
 //     }
 //   }
 //
-// Below is a query to get all employees info (use # before an item to not show it)
+// Below is a query to get all tickets info (use # before an item to not show it)
 // query{
 //   tickets {
 //     _id
