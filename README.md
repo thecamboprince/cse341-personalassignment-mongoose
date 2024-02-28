@@ -113,3 +113,9 @@ npm install express-validator
 ### Isntall joi-password-commplexity
 
 npm install joi-password-complexity
+
+##
+
+### Isntall Graphql
+
+npm install express-graphql
