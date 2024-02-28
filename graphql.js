@@ -51,11 +51,41 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+    employeeById: {
+      type: EmployeeType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+        },
+      },
+      resolve: async (_, { id }) => {
+        try {
+          return await employees.findById(id); // Use findById() to get employee by ID
+        } catch (err) {
+          throw new Error(err.message);
+        }
+      },
+    },
     tickets: {
       type: GraphQLList(TicketType),
       resolve: async () => {
         try {
           return await tickets.find();
+        } catch (err) {
+          throw new Error(err.message);
+        }
+      },
+    },
+    ticketById: {
+      type: TicketType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID),
+        },
+      },
+      resolve: async (_, { id }) => {
+        try {
+          return await tickets.findById(id); // Use findById() to get ticket by ID
         } catch (err) {
           throw new Error(err.message);
         }
@@ -68,6 +98,7 @@ const RootQuery = new GraphQLObjectType({
 // Example:   localhost:8080/graphql   or  https://cse341-personalassignment-mongoose.onrender.com/graphql
 //
 // Below is a query to get all employees info (use # before an item to not show it)
+// Or use employeeById(id: "65c749db839d216100e738e3") for individual
 // query{
 //     employees {
 //       # _id
@@ -78,6 +109,7 @@ const RootQuery = new GraphQLObjectType({
 //   }
 //
 // Below is a query to get all tickets info (use # before an item to not show it)
+// Or use ticketById(id: "") for individual
 // query{
 //   tickets {
 //     _id
