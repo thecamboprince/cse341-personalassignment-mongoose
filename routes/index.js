@@ -51,6 +51,7 @@ router.get("/", (req, res) => {
                     You are logged in as *<span id="username"></span>*<br><span style="font-size: 15px; font-style: italic;">Check out your logged in <a href="https://cse341-personalassignment-mongoose.onrender.com/profile">profile</a></span>
                     <br><br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the api-docs page!
                     <br><br>Or<br><br>Click <a href="https://cse341-personalassignment-mongoose.onrender.com/logout">here</a> to logout!
+                    <br><br><br><br>For Extra Credit on <a href="https://cse341-personalassignment-mongoose.onrender.com/graphql">Graphql</a>!
                 </div>
             </div>
             <script>
@@ -104,6 +105,7 @@ router.get("/", (req, res) => {
                 <div class="message">
                     *Logged Out*.<br><br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/login">here</a> to login.
                     <br><br>Or<br><br>Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go the api-docs page!
+                    <br><br><br><br>For Extra Credit on <a href="https://cse341-personalassignment-mongoose.onrender.com/graphql">Graphql</a>!
                 </div>
             </div>
         </body>
