@@ -48,7 +48,7 @@ router.get("/", (req, res) => {
         <body>
             <div class="container">
                 <div class="message">
-                    You are logged in as *<span id="username"></span>*.<br><span style="font-size: 12px; font-style: italic;">Check out your logged in <a href="https://cse341-personalassignment-mongoose.onrender.com/profile">profile</a></span>.
+                    You are logged in as *<span id="username"></span>*.<br><span style="font-size: 14px; font-style: italic;">Check out your logged in <a href="https://cse341-personalassignment-mongoose.onrender.com/profile">profile</a></span>.
                     <br><br><br> Click <a href="https://cse341-personalassignment-mongoose.onrender.com/api-docs">here</a> to go to the api-docs page!
                     <br><br>Or<br><br>Click <a href="https://cse341-personalassignment-mongoose.onrender.com/logout">here</a> to logout!
                 </div>
