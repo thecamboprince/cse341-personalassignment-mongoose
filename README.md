@@ -92,7 +92,7 @@ npm run swagger
 
 ##
 
-### Isntall bcryptjs
+### Install bcryptjs
 
 npm install bcryptjs
 
@@ -104,18 +104,18 @@ npm install bcrypt
 
 ##
 
-### Isntall express-validator
+### Install express-validator
 
 npm install express-validator
 
 ##
 
-### Isntall joi-password-commplexity
+### Install joi-password-commplexity
 
 npm install joi-password-complexity
 
 ##
 
-### Isntall Graphql
+### Install Graphql
 
 npm install express-graphql
