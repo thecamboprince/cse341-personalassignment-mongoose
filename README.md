@@ -98,7 +98,7 @@ npm install bcryptjs
 
 ##
 
-### Isntall bcrypt
+### Install bcrypt
 
 npm install bcrypt
 
